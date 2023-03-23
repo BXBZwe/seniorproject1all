@@ -38,8 +38,7 @@
     position: absolute;
     z-index: -1;
     filter: brightness(45%);
-    background-image: url("../img/community_background.png");
-    background-color: #cccccc;
+    background-color:darkolivegreen;
     background-size: cover;
     background-position: center;
   }
@@ -142,10 +141,10 @@
   .tnx h2 i {
     color: #fd7e13;
   }
-  .card div {
+  #product-btn  {
     transition: 0.5s;
   }
-  .card div:hover {
+  #product-btn :hover {
     transition: 0.3s;
     transform: translateY(-10px);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -167,7 +166,7 @@
           <img src="/logo1.png" alt="" width="200" />
         </div>
         <ul>
-          <li><a href="home.html">Home</a></li>
+          <li><a onclick="goToHome()">Home</a></li>
 
           <li>
             <a href="Settings.html">
@@ -176,7 +175,6 @@
               </a>
             </a>
           </li>
-          <li><i class="fa-solid fa-bell"></i></li>
           <li>
             <a id="profile-btn" onclick="goToProfile()"
               ><i class="fa-solid fa-user"></i
@@ -200,11 +198,8 @@
             all in Salted Fish!
           </p>
         </div>
-        <div class="card" style="width: 50%">
-          <button id="profile-btn" onclick="goToProfile()">Profile</button>
-        </div>
         <div class="card"  style="width: 50%;">
-          <button id="product-btn">Products
+          <button id="product-btn" style="width: 50%; background-color: #fd7e13;">Products
           </button>
         </div>
       </div>
@@ -213,6 +208,10 @@
       const goToProfile = () => {
         const userId = new URLSearchParams(window.location.search).get('id');
         window.location.href = `/profile?id=${userId}`;
+      }
+      const goToHome = () => {
+        const userId = new URLSearchParams(window.location.search).get('id');
+        window.location.href = `/home?id=${userId}`;
       }
     //const profileBtn = document.getElementById('profile-btn');
     const productbtn = document.getElementById('product-btn');

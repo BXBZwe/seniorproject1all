@@ -86,19 +86,7 @@
         <img src="./img/logo.PNG" alt="" width="200" />
       </div>
       <ul>
-        <li><a href="home.html" style="text-decoration: none">Home</a></li>
-
-        <li>
-          <a href="./setting/Settings.html">
-            <i class="fa-solid fa-gear"></i>
-          </a>
-        </li>
-        <li><i class="fa-solid fa-bell"></i></li>
-        <li>
-          <a href="./profile/myProfile_post.html"
-            ><i class="fa-solid fa-user"></i
-          ></a>
-        </li>
+        <li><a onclick="gotoHome()" style="text-decoration: none">Home</a></li>
       </ul>
     </div>
 
@@ -228,5 +216,9 @@
       
       .catch(error => console.error(error));
     });
+      const goToHome = () => {
+        const userId = new URLSearchParams(window.location.search).get('id');
+        window.location.href = `/home?id=${userId}`;
+      }
   </script>
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product-detail</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Times New Roman", Times, serif;
+    }
+    
+    * a {
+    text-decoration: none;
+    }
+
+    * li {
+        list-style: none;
+    }
+
+    .navBar {
+        display: flex;
+        width: 85%;
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items: center;
+        height: 15vh;
+    }
+    .navBar ul {
+        display: flex;
+        align-items: center;
+    }
+    .navBar ul li {
+        padding: 0 25px;
+    }
+    .navBar ul li a {
+        font-size: 1rem;
+        color: rgb(0, 0, 0);
+        font-weight: 400;
+        letter-spacing: 1.5px;
+    }
+    .navBar ul li i {
+        font-size: 1.5rem;
+        color: rgb(0, 0, 0);
+    }
+    .navBar .logo a {
+        font-size: 2.3rem;
+        color: rgb(0, 0, 0);
+    }
+
+    .main-wrapper {
+        /* min-height: 100vh; */
+        background-color: #fff;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+    .container {
+        max-width: 1200px;
+        padding: 0 1rem;
+        margin: 0 auto;
+    }
+    .product-div {
+        margin: 1rem 0;
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: #fff;
+        border-radius: 3px;
+        column-gap: 10px;
+    }
+    .product-div-left {
+        padding: 20px;
+    }
+    .product-div-right {
+        padding: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="navBar">
+      <div class="logo">
+        <img src="./img/logo.PNG" alt="" width="200" />
+      </div>
+      <ul>
+        <li><a href="home.html" style="text-decoration: none">Home</a></li>
+
+        <li>
+          <a href="./setting/Settings.html">
+            <i class="fa-solid fa-gear"></i>
+          </a>
+        </li>
+        <li><i class="fa-solid fa-bell"></i></li>
+        <li>
+          <a href="./profile/myProfile_post.html"
+            ><i class="fa-solid fa-user"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="product-div">
+          <div class="product-div-left">
+            <span class="Itemname" id="Itemname" >Item Name: {{Itemname}}</span>
+
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <p class="Itemstatus" id="Itemstatus"> Item Description: {{Itemstatus}}
+            </p>
+            <div>&nbsp;</div>
+            <p class="Itemcondition" id="Itemcondition" >Item Condition: {{Itemcondition}}</p>
+            <p class="Itemcategory" id="Itemcategory" >Categories: {{Itemcategory}}</p>
+            <p class="Itemavailability" id="Itemavailability" >Itemavailability: {{Itemavailability}}</p>
+
+            <br>
+            <br>
+            <button id="appointmentbtn" class="btn btn-primary">Appointment</button>
+            <form id="appointment-form">
+              <div class="form-group">
+                <label for="appointment-date">Date:</label>
+                <input type="date" class="form-control" id="appointment-date" name="Exchangeddate" required>
+              </div>
+              <div class="form-group">
+                <label for="appointment-time">Time:</label>
+                <input type="time" class="form-control" id="appointment-time" name="Exchangedtime" required>
+              </div>
+              <div class="form-group">
+                <label for="appointment-location">Location:</label>
+                <select id="appointment-location" name="Location" required>
+                  <option value="">Select</option>
+                  <option value="VMS">VMS</option>
+                  <option value="VME">VME</option>
+                  <option value="MSME">MSME</option>
+                  <option value="AR">AR</option>
+                  <option value="CL">CL</option>
+                  <option value="AUMALL">AUMALL</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="product-dropdown">Choose a product to exchange:</label>
+                <select class="form-control" id="product-dropdown" name="productid">
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+          
+        </div>
+      </div>
+  </body>
+  <script>
+    const itemId = new URLSearchParams(window.location.search).get('id');
+    fetch(`/productdetail?id=${itemId}`)
+    .then(response => response.json())
+    .then(product => {
+        document.getElementById('Itemname').textContent = `Item Name: ${product.Itemname}`;
+        document.getElementById('Itemstatus').textContent = `Item Description: ${product.Itemstatus}`;
+        document.getElementById('Itemcondition').textContent = `Item Condition: ${product.Itemcondition}`;
+        document.getElementById('Itemcategory').textContent = `Categories: ${product.Itemcategory}`;
+        document.getElementById('Itemavailability').textContent = `Itemavailability: ${product.Itemavailability}`;
+    })
+    .catch(error => console.error(error));
+  </script>
+
+  <script>
+    // Get the appointment form and button
+    const appointmentForm = document.getElementById("appointment-form");
+    const appointmentBtn = document.getElementById("appointmentbtn");
+
+    // Get the product dropdown menu
+    const productDropdown = document.getElementById("product-dropdown");
+
+    // Add an event listener to the appointment button to show the form when clicked
+    appointmentBtn.addEventListener("click", () => {
+      appointmentForm.style.display = "block";
+    });
+
+    // Fetch the user's products and populate the dropdown menu
+    fetch(`/getproduct?id=${itemId}`)
+      .then((response) => response.json())
+      .then((products) => {
+        products.forEach((product) => {
+          const option = document.createElement("option");
+          option.value = product.Itemid;
+          option.text = product.Itemname;
+          productDropdown.appendChild(option);
+        });
+      })
+      .catch((error) => console.error(error));
+      
+    //handle the form submission
+    appointmentForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      //get the form data 
+      const formData = new FormData(appointmentForm);
+
+      const appointmentData = {
+        date: formData.get("Exchangeddate"),
+        time: formData.get("Exchangedtime"),
+        location: formData.get("Location"),
+        product_id: formData.get("productid"),
+      };
+      
+      // Send the appointment data to the server
+      fetch('/appointment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(appointmentData)
+      })
+      .then(response => response.text())
+      .then(message => {
+        const successMessage = document.createElement('div');
+        successMessage.classList.add('alert', 'alert-success');
+        successMessage.textContent = message;
+        const formContainer = document.getElementById('appointment-form');
+        formContainer.insertBefore(successMessage, formContainer.firstChild);
+        appointmentForm.reset();
+      })
+      
+      .catch(error => console.error(error));
+    });
+  </script>
+</html>

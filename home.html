@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+  * a {
+    text-decoration: none;
+  }
+  * li {
+    list-style: none;
+  }
+  .container {
+    min-height: 120vh;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .bg::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: brightness(45%);
+    background-image: url("../img/community_background.png");
+    background-color: #cccccc;
+    background-size: cover;
+    background-position: center;
+  }
+  .navBar {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    height: 15vh;
+  }
+  .navBar ul {
+    display: flex;
+    align-items: center;
+  }
+  .navBar ul li {
+    padding: 0 25px;
+  }
+  .navBar ul li a {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+  }
+  .navBar ul li i {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .navBar .logo a {
+    font-size: 2.3rem;
+    color: #fff;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+  
+  .card {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+  }
+  .card h2 {
+    color: #fff;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  .card .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 90%;
+    height: 220px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  .box1 {
+    background-image: url("../img/my_faculty.jpeg");
+  }
+  .box2 {
+    background-color: #ccccccb3;
+  }
+  .box3 {
+    background-color: #ccccccb3;
+  }
+  .box4 {
+    background-color: #ccccccb3;
+  }
+  .uni h2 {
+    font-size: 2rem;
+    letter-spacing: 2.8px;
+    color: #fff;
+  }
+  .text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .txt h1 {
+    font-size: 7rem;
+    color: #fff;
+  }
+  .uni p {
+    opacity: 0.4;
+    color: #fff;
+  }
+  .tnx h2 i {
+    color: #fd7e13;
+  }
+  .card div {
+    transition: 0.5s;
+  }
+  .card div:hover {
+    transition: 0.3s;
+    transform: translateY(-10px);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+  
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container bg">
+      <div class="navBar">
+        <div class="logo">
+          <img src="/logo1.png" alt="" width="200" />
+        </div>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+
+          <li>
+            <a href="Settings.html">
+              <a href="./setting/Settings.html">
+                <i class="fa-solid fa-gear"></i>
+              </a>
+            </a>
+          </li>
+          <li><i class="fa-solid fa-bell"></i></li>
+          <li>
+            <a id="profile-btn" onclick="goToProfile()"
+              ><i class="fa-solid fa-user"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <div class="uni" style="width: 50%">
+          <div class="tnx">
+            <h2><i class="fas fa-map-marker-alt"></i> Assumption University</h2>
+          </div>
+          <div class="txt">
+            <h1>Exchange</h1>
+            <h1>Items</h1>
+          </div>
+          <p>
+            If you are still worried about second-hand goods trading, come to
+            Salted Fish! More convenient exchange, better trading experience,
+            all in Salted Fish!
+          </p>
+        </div>
+        <div class="card" style="width: 50%">
+          <button id="profile-btn" onclick="goToProfile()">Profile</button>
+        </div>
+        <div class="card"  style="width: 50%;">
+          <button id="product-btn">Products
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const goToProfile = () => {
+        const userId = new URLSearchParams(window.location.search).get('id');
+        window.location.href = `/profile?id=${userId}`;
+      }
+    //const profileBtn = document.getElementById('profile-btn');
+    const productbtn = document.getElementById('product-btn');
+    productbtn.addEventListener('click', () => {
+      window.location.href = '/homeproduct';
+    });
+    </script>
+  </body>
+</html>

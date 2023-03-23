@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaltedFish</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.header {
+  width: 100%;
+  height: 100vh;
+  padding: 0 10%;
+  background: white;
+}
+nav {
+  width: 100%;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: -200px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.text-box {
+  margin-top: 15%;
+  max-width: 600px;
+}
+.text-box h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+  color: #768245;
+}
+.text-box a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: #768245;
+  font-weight: bolder;
+  padding: 10px 30px;
+  font-size: 18px;
+  margin-top: 50px;
+  border-radius: 8px;
+  transition: 0.2s linear;
+}
+.text-box p {
+  font-size: 19px;
+}
+.text-box a:hover {
+  color: #768245;
+  background: #f4ead5;
+  font-weight: bolder;
+}
+.user-box {
+  /*background: #dae2b6;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  width: 50%;
+}
+.user-box img {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <img src="./img/logo.PNG" alt="" width="200"/>
+      </nav>
+      <div class="text-box">
+        <h1>Secure exchange item to item in Assumption University</h1>
+        <p>
+          If you are still worried about second-hand goods trading, come to
+          Salted Fish! </br>
+          More convenient exchange, better trading
+          experience, all in Salted Fish!
+        </p>
+        <a id="start-btn">Start Changing</a>
+      </div>
+      <div class="user-box">
+        <img src="./img/home-photo.jpeg" alt="" />
+      </div>
+    </div>
+    <script>
+      const startbtn = document.getElementById('start-btn');
+      startbtn.addEventListener('click', () => {
+        window.location.href = '/login';
+      });
+    </script>
+  </body>
+</html>

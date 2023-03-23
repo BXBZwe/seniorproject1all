@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Product Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+  }
+  * a {
+    text-decoration: none;
+  }
+  * li {
+    list-style: none;
+  }
+  #home-posts{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .navBar {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    height: 15vh;
+  }
+  .navBar ul {
+    display: flex;
+    align-items: center;
+  }
+  .navBar ul li {
+    padding: 0 25px;
+  }
+  .navBar ul li a {
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    letter-spacing: 1.5px;
+  }
+  .navBar ul li i {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+  }
+  .navBar .logo a {
+    font-size: 2.3rem;
+    color: rgb(0, 0, 0);
+  }
+  
+  /*PRODUCT PAGE STYLING*/
+  
+  .blog-sidebar-title {
+    color: #242424;
+    font-size: 25px;
+    font-weight: 900;
+  }
+  
+  .blog-sidebar-list {
+    color: #242424;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  
+  .blog-sidebar-text {
+    color: #242424;
+    font-size: 16px;
+    font-weight: 200;
+  }
+  
+  .blog-form {
+    background-color: #f4f4f4;
+    padding: 50px;
+    height: 1000px;
+  }
+  
+  .card-title {
+    color: #000000;
+    font-size: 25px;
+    font-weight: 900;
+  }
+  
+  .card-text {
+    font-size: 13px;
+  }
+  
+  .product-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="navBar">
+      <div class="logo">
+        <img src="/logo1.png" alt="" width="200" />
+      </div>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+
+        <li>
+          <a href="./setting/Settings.html">
+            <i class="fa-solid fa-gear"></i>
+          </a>
+        </li>
+        <li><i class="fa-solid fa-bell"></i></li>
+        <li>
+          <a href="./profile/myProfile_post.html"
+            ><i class="fa-solid fa-user"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="row">
+          <form class="col-lg-3 blog-form" id="Filter-form">
+            <div class="category-group">
+              <h2 class="blog-sidebar-title">
+                <b>Categories</b>
+              </h2>
+              <hr />
+  
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Electronics" /> Electronics</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Clothes & Shoes" /> Clothes & Shoes</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Sports" /> Sports</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Health & Beauty" /> Health & Beauty</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Books" /> Books</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="category-select" name="category-select" value="Others" /> Others</b>
+              </p>
+            </div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+
+            <h2 class="blog-sidebar-title"><b>Old and New </b></h2>
+            <hr />
+
+            <div class="col" style="padding-left: 0; padding-right: 0">
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="condition-select" name="condition-select" value="Brand New" /> Brand New</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="condition-select" name="condition-select" value="70%"/> 70% New</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="condition-select" name="condition-select" value="Above 50%"/> Above 50% New</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="condition-select" name="condition-select" value="Old"/> Old</b>
+              </p>
+              <p class="blog-sidebar-list">
+                <b><input type="checkbox" id="condition-select" name="condition-select" value="Second Hand"/> Second Hand</b>
+              </p>
+            </div>
+
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <button type="submit" class="btn btn-dark btn-lg">Filter</button>
+          </form>
+          <div class="col-lg-9" style="padding-left: 30px">
+            <div class="row">
+              <div class="input-group mb-3">
+                <input type="text" id="search" placeholder="Search" aria-label="Receipient's username" aria-describely="basic-addon2"/>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"
+                    ><i class="fa fa-search"></i
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class ="product-item" id="homepost-list">
+            <ul id="home-posts"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+  // Function to display the products on the product page
+  const displayProducts = (products) => {
+    const productContainer = document.getElementById('homepost-list');
+    // Clear previous products
+    productContainer.innerHTML = '';
+    // Iterate over the products and add them to the HTML
+    products.forEach(product => {
+      const productHTML = `<div class="product">
+                            <h3>Item name: ${product.Itemname}</h3>
+                            <p>Item Category: ${product.Itemcategory}</p>
+                            <p>Item Condition: ${product.Itemcondition}</p>
+                            <p>Availability: ${product.Itemavailability}</p>
+                            </div>`;
+    productContainer.insertAdjacentHTML('beforeend', productHTML);
+  });
+}
+
+// Fetch the products from the server
+const fetchProducts = async () => {
+  try {
+    const response = await fetch('/getallproducts');
+    if (response.ok) {
+      const data = await response.json();
+      displayProducts(data);
+    } else {
+      throw new Error('Failed to get products');
+    }
+  } catch (error) {
+    console.error(error);
+    alert('Failed to get products');
+  }
+};
+
+// Call the fetchProducts function when the page loads
+fetchProducts();
+  </script>
+
+  <script>
+     // Fetch products from server
+    let products = [];
+     
+    function TakeProducts() {
+      fetch('/getallproducts')
+      .then(response => response.json())
+      .then(data => {
+        products = data; // populate the products array
+        ShowProducts(products);
+      });
+    }
+    // Define filter function
+    // Define display function
+    const Itemid = new URLSearchParams(window.location.search).get('id');
+    function ShowProducts(productsArray) {
+      const productContainer = document.getElementById('homepost-list');
+      productContainer.innerHTML = '';
+      
+      productsArray.forEach((product) => {
+        const productLink = document.createElement("a");
+        productLink.href = `/productdetail?id=${product.Itemid}`; 
+
+        const productCard = document.createElement('div');
+        productCard.classList.add('card', 'mb-3');
+        
+        const productName = document.createElement('h5');
+        productName.innerText = product.Itemname;
+        
+        const productCategory = document.createElement('p');
+        productCategory.innerHTML = `<strong>Category:</strong> ${product.Itemcategory}`;
+        
+        const productCondition = document.createElement('p');
+        productCondition.innerHTML = `<strong>Condition:</strong> ${product.Itemcondition}`;
+        
+        const productAvailability = document.createElement('p');
+        productAvailability.innerText = product.Itemavailability;
+        
+        productCard.appendChild(productName);
+        productCard.appendChild(productCategory);
+        productCard.appendChild(productCondition);
+        productCard.appendChild(productAvailability);
+
+        productLink.appendChild(productCard);
+        productContainer.appendChild(productLink);
+      });
+    }
+    
+    function filterProducts() {
+      const checkedCategoryInputs = document.querySelectorAll('input[name="category-select"]:checked');
+      const categoryFilters = Array.from(checkedCategoryInputs).map(input => input.value);
+      
+      const checkedConditionInputs = document.querySelectorAll('input[name="condition-select"]:checked');
+      const conditionFilters = Array.from(checkedConditionInputs).map(input => input.value);
+      
+      const filteredProducts = products.filter(product => {
+        const matchCategory = categoryFilters.length === 0 || categoryFilters.includes(product.Itemcategory);
+        const matchCondition = conditionFilters.length === 0 || conditionFilters.includes(product.Itemcondition);
+        return matchCategory && matchCondition;
+      });
+      
+      ShowProducts(filteredProducts);
+    }
+    function attachFilterEventListeners() {
+      const filterForm = document.getElementById('Filter-form');
+      filterForm.addEventListener('submit', event => {
+        event.preventDefault();
+        filterProducts();
+      });
+    }
+    
+    function thisProducts() {
+      TakeProducts();
+      attachFilterEventListeners();
+    }
+    
+    thisProducts();
+  </script>
+
+  <script>
+  const search = document.querySelector('#search');
+  search.addEventListener('input', searchProducts);
+  function searchProducts() {
+    const searchValue = search.value.toLowerCase().trim();
+    const befilterProducts = products.filter((product) => {
+      return (
+        product.Itemname.toLowerCase().includes(searchValue) ||
+        product.Itemstatus.toLowerCase().includes(searchValue)
+        );
+      });
+      ShowProducts(befilterProducts);
+    }
+
+  </script>
+</html>
